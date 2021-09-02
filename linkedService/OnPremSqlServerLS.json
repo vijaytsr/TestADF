@@ -1,0 +1,17 @@
+{
+	"name": "OnPremSqlServerLS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DSVM2019;initial catalog=AdventureWorksDW2016_EXT",
+			"userName": "sqladmin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzNTY1NjhmYy04OGM5LTRlMTAtYjc0Ny02OTUxN2M3MjI4ZTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "OnPremIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
