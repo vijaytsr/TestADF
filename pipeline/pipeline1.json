@@ -1,0 +1,40 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait for Testing",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Wait for Testing",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CopyOnPremSQLToADLS",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"TableList": "[\n    {\"source\":{\"TableName\":\"DimEmployee\"},\"destination\":{\"FileName\":\"ChitraEMP.txt\"}},\n    {\"source\":{\"TableName\":\"FactInternetSales\"},\"destination\":{\"FileName\":\"ChitraSales.txt\"}}\n]"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
